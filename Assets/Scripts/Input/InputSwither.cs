@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class InputSwither : MonoBehaviour
 {
-    [SerializeField] private JoystickInput _joystickInput;
+    [SerializeField] private PlayerInput _joystickInput;
     [SerializeField] private Canvas _joystickCanvas;
     [SerializeField] private PlayerInteraction _playerInteraction;
 

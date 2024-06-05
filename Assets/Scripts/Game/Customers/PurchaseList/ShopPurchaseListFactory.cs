@@ -15,9 +15,7 @@ public class ShopPurchaseListFactory : PurchaseListFactory
     public override PurchaseList Create(int count)
     {
         var newList = new PurchaseList()
-            .Add(FindUnlockedStackable(StackableType.Coffin).StackableType, count)
-            .TryAdd(FindRandomUnlockedStackable(new List<StackableType> {StackableType.Bouquet, StackableType.UpgradedBouquet}), count)
-            .TryAdd(FindRandomUnlockedStackable(new List<StackableType> {StackableType.Tombstone, StackableType.UpgradedTombstone}), count);
+            .Add(FindUnlockedStackable(StackableType.Coffin).StackableType, count);
 
         return newList;
     }

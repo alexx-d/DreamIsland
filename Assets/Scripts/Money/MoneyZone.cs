@@ -6,7 +6,6 @@ using UnityEngine.Events;
 
 public class MoneyZone : MonoBehaviour
 {
-    [SerializeField] private MoneyStackHolder _moneyView;
     [SerializeField] private Dollar _defaultDollar;
     [SerializeField] private string _moneyZoneSavKey;
     [SerializeField] private Collider _collider;
@@ -27,7 +26,6 @@ public class MoneyZone : MonoBehaviour
     public void Add(Dollar dollar)
     {
         _dollars.Add(dollar);
-        _moneyView.Add(dollar);
 
         DollarsValue += dollar.Value;
         PlayerPrefs.SetInt(_moneyZoneSavKey, _dollars.Count);
@@ -43,7 +41,6 @@ public class MoneyZone : MonoBehaviour
         var lastDollar = _dollars[_dollars.Count - 1];
 
         _dollars.Remove(lastDollar);
-        _moneyView.Remove(lastDollar);
 
         DollarsValue -= lastDollar.Value;
         PlayerPrefs.SetInt(_moneyZoneSavKey, _dollars.Count);
@@ -66,5 +63,25 @@ public class MoneyZone : MonoBehaviour
     public void SetActive(bool active)
     {
         _collider.enabled = active;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Player player = other.GetComponent<Player>();
+        if (player != null)
+        {
+            PlayerStackPresenter stackPresenter = player.GetComponent<PlayerStackPresenter>();
+            if (stackPresenter != null)
+            {
+                Fish fish = player.GetComponentInChildren<Fish>();
+                if (fish != null)
+                {
+                    int fishValue = fish.Value; // Assuming Fish has a Value property
+                    stackPresenter.RemoveFromStack(fish);
+                    Destroy(fish.gameObject);
+                    StartCoroutine(SpawnMoney(fishValue));
+                }
+            }
+        }
     }
 }

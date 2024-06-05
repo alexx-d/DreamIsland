@@ -19,9 +19,12 @@ public class SingleTypeRandomStackableProvider : SingleTypeStackableProvider
                 _stackableList[i] = null;
     }
 
-    public override Stackable InstantiateStackable() => 
-        Instantiate(GetStackable(), transform);
-    
-    public override Stackable GetStackable() => 
+    public override Stackable InstantiateStackable()
+    {
+        var stackable = GetStackable();
+        return Instantiate(stackable, transform);
+    }
+
+    public override Stackable GetStackable() =>
         _stackableList[Random.Range(0, _stackableList.Count)];
 }

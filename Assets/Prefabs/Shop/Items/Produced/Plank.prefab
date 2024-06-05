@@ -90,7 +90,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7838222350350743189}
-  - component: {fileID: 8728381287622216001}
+  - component: {fileID: 6596924583632330512}
   m_Layer: 0
   m_Name: Plank
   m_TagString: Untagged
@@ -114,7 +114,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8728381287622216001
+--- !u!114 &6596924583632330512
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7838222350350743188}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51144c402f21469c8fe66b776192e3bc, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ef39c3d4ccff5d41b0511131148de57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &7729444553269090787

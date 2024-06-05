@@ -5,7 +5,7 @@ public class CanvasShopPresenter : MonoBehaviour
 {
     [SerializeField] private MenuView _shopView;
     [SerializeField] private Button _openButton;
-    [SerializeField] private JoystickInput _joystickInput;
+    [SerializeField] private PlayerInput _joystickInput;
     [SerializeField] private Canvas _joystickCanvas;
     
     private void OnEnable()

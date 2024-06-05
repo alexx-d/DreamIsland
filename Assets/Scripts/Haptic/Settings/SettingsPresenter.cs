@@ -6,7 +6,7 @@ public class SettingsPresenter : MonoBehaviour
 {
     [SerializeField] private MenuView _settings;
     [SerializeField] private Button _settingsButton;
-    [SerializeField] private JoystickInput _joystickInput;
+    [SerializeField] private PlayerInput _joystickInput;
     [SerializeField] private Canvas _joystickCanvas;
     [Space(10)]
     [SerializeField] private List<GameObject> _disabledUIObjects;

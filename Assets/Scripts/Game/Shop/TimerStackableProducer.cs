@@ -7,7 +7,8 @@ public class TimerStackableProducer : TimerStackInteractableZone, IModificationL
 {
     [SerializeField] private SingleTypeStackableProvider _stackableProvider;
     [SerializeField] private int _maxCount = 10;
-    [SerializeField] private JoystickInput _joystickInput;
+    [SerializeField] private PlayerInput _joystickInput;
+    [SerializeField] private bool _disableAfterOneItem = false;
 
     private float _interactSpeedRate = 1f;
 
@@ -34,7 +35,7 @@ public class TimerStackableProducer : TimerStackInteractableZone, IModificationL
 
     public override bool CanInteract(StackPresenter enteredStack)
     {
-        return enteredStack.CanAddToStack(_stackableProvider.Type) && 
+        return enteredStack.CanAddToStack(_stackableProvider.Type) &&
                enteredStack.CalculateCount(_stackableProvider.Type) < _maxCount;
     }
 
@@ -42,9 +43,14 @@ public class TimerStackableProducer : TimerStackInteractableZone, IModificationL
     {
         var stackable = _stackableProvider.InstantiateStackable();
         enteredStack.AddToStack(stackable);
-        
+
         StackedInteraction?.Invoke();
         ItemGave?.Invoke(stackable);
+
+        if (_disableAfterOneItem)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     public void OnModificationUpdate(float value)

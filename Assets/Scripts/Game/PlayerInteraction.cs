@@ -4,6 +4,8 @@ public class PlayerInteraction : MonoBehaviour
 {
     [SerializeField] private Collider _collider;
     [SerializeField] private Rigidbody _body;
+    [SerializeField] private MoneyPayer _moneyPayer;
+    [SerializeField] private MoneyZone _moneyZone;
 
     public void EnableInteraction()
     {
@@ -15,5 +17,13 @@ public class PlayerInteraction : MonoBehaviour
     {
         _collider.enabled = false;
         _body.isKinematic = true;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("MoneyZone"))
+        {
+            _moneyPayer.Pay(_moneyZone, 100);
+        }
     }
 }

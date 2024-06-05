@@ -10,6 +10,6 @@ public enum StackableType
     FlowerCoffin = 7,
     Urn = 8,
     DeadBody = 9,
-    UpgradedBouquet,
-    UpgradedTombstone
+    Plank = 10,
+    Fish = 11
 }

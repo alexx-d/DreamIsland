@@ -2,7 +2,7 @@ using UnityEngine;
 
 public abstract class ClickStackInteractableZone : StackInteractableZoneBase
 {
-    [SerializeField] private JoystickInput _joystickInput;
+    [SerializeField] private PlayerInput _joystickInput;
 
     private void Update()
     {
